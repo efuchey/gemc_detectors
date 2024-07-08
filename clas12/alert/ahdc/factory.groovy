@@ -35,22 +35,22 @@ int nsectors = ahdc.getNumSectors();
 
 for(int isec=0; isec<nsectors; isec++) 
 {
-	int nsuperlayers = ahdc.getSector(isec+1).getNumSuperlayers();
+	int nsuperlayers = ahdc.getSector(isec).getNumSuperlayers();
 	for(int isl=0; isl<nsuperlayers; isl++) 
 	{
-		int nlayers = ahdc.getSector(isec+1).getSuperlayer(isl+1).getNumLayers();
+		int nlayers = ahdc.getSector(isec).getSuperlayer(isl).getNumLayers();
 		for(int ilay=0; ilay<nlayers; ilay++) 
 		{
-			int ncomponents = ahdc.getSector(isec+1).getSuperlayer(isl+1).getLayer(ilay+1).getNumComponents();
+			int ncomponents = ahdc.getSector(isec).getSuperlayer(isl).getLayer(ilay).getNumComponents();
 			//if(isec==0 && isl==0 && ilay==0) writer1 << "ahdc.layer.ncomponents | " << ncomponents << "\n"; 
 			if(ncomponents!=0) 
 			{
-				writer1 << "ahdc.superlayer"<< isl+1 << ".layer"<< ilay+1 <<".ncomponents | " << ncomponents << "| na | number of counters in panel | sergeyeva | sergeyeva@ipno.in2p3.fr | none | none | 05 June 2020 \n";
+				writer1 << "ahdc.superlayer"<< isl << ".layer"<< ilay <<".ncomponents | " << ncomponents << "| na | number of counters in panel | sergeyeva | sergeyeva@ipno.in2p3.fr | none | none | 05 June 2020 \n";
 
 				for(int icomp=0; icomp<ncomponents; icomp++) 
 				{
-					Component comp = ahdc.getSector(isec+1).getSuperlayer(isl+1).getLayer(ilay+1).getComponent(icomp+1);
-					writer2<< gemcString(isl+1, ilay+1, comp);
+					Component comp = ahdc.getSector(isec).getSuperlayer(isl).getLayer(ilay).getComponent(icomp);
+					writer2<< gemcString(isl, ilay, comp);
 				}
 			}
 		}
@@ -114,20 +114,20 @@ public String gemcString(int superlayer, int layer, Component comp) {
 
 	// calculating the angle between wires in each superlayer, alphaW_layer
 	double numWires;
-	if (superlayer == 1) 
+	if (superlayer == 0) 
         {
             numWires = 47.0; //47
         }
         
-        else if (superlayer == 2) 
+        else if (superlayer == 1) 
         {
             numWires = 56.0; //56
         }
-        else if (superlayer == 3)
+        else if (superlayer == 2)
         {
             numWires = 72.0; //72
         }
-        else if (superlayer == 4)
+        else if (superlayer == 3)
         {
             numWires = 87.0;
         }
