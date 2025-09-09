@@ -52,13 +52,14 @@ sub build_mother
 	$detector{"pos"}         = "0.0*mm 0.0*mm 0.0*mm";
 	$detector{"type"}        = "Tube";
 	#$detector{"dimensions"}  = "2.5*cm 7.3*cm 15.0*cm 0.*deg 360.*deg";
-	$detector{"dimensions"}  = "2.5*cm 21.0*cm 20.0*cm 0.*deg 360.*deg";
+	#$detector{"dimensions"}  = "2.5*cm 21.0*cm 20.0*cm 0.*deg 360.*deg";
+	$detector{"dimensions"}  = "0.4*cm 23.5*cm 32.227*cm 0.*deg 360.*deg";
 	$detector{"description"} = "Alert mother";
 	$detector{"color"}       = "aa00ff";
-	$detector{"material"}    = "G4_AIR";
+	$detector{"material"}    = "AHDCgas";
 	$detector{"mfield"}      = "no";
 	$detector{"ncopy"}       = "1";
-	$detector{"visible"}     = 0; # 0 or 1, 1 for debugging is better
+	$detector{"visible"}     = 1; # 0 or 1, 1 for debugging is better
 	$detector{"style"}       = 0;
 	print_det(\%main::configuration, \%detector);
 }
